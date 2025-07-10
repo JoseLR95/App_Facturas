@@ -1,0 +1,28 @@
+# Entornos virtuales
+venv/
+.env
+.env.*
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Compilaciones Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Archivos temporales
+*.zip
+*.log
+*.tmp
+*.bak
+
+# Archivos de Streamlit
+.streamlit/config.toml
+
+# Archivos creados por el usuario
+*.sqlite3
+*.db
+
+# Archivos ocultos de
