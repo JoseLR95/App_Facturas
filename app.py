@@ -6,6 +6,26 @@ import tempfile
 import zipfile
 import pdfplumber
 import warnings
+from dotenv import load_dotenv  # NUEVO: para cargar variables desde .env
+
+# --- CARGAR VARIABLES DE ENTORNO ---
+load_dotenv()
+PASSWORD = os.getenv("APP_PASSWORD")
+
+# --- FUNCIÓN DE CONTROL DE ACCESO ---
+def check_password():
+    password = st.text_input("🔒 Introduce la contraseña para acceder", type="password")
+    if password == PASSWORD:
+        return True
+    elif password:
+        st.error("Contraseña incorrecta.")
+    return False
+
+# --- BLOQUEO DE ACCESO ---
+if not check_password():
+    st.stop()
+
+
 
 # --- CONFIGURACIÓN DE LA APLICACIÓN ---
 st.set_page_config(page_title="Clasificador de Facturas por CIF", layout="wide")
